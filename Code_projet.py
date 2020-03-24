@@ -77,9 +77,9 @@ Function that calulate the genome cost in function of r0 for each individual and
 return a list of position sorted by decreased cost.
 
 Args:
-	pop (list):  contain a list of each individual. Each of individual is 
-	represented by a genom.
-	r0  (int): threshold
+	pop (list): contain a list of each individual. Each of individual is 
+							represented by a genom.
+	r0   (int): threshold
 	
 Return:
 	liste_ordre (list): contain position of individuals sorted by their increased cost.
@@ -93,7 +93,17 @@ Return:
 
 
 def select(pop,liste_rang_): # sélectionne les N/2 individus avec les valeurs de coût les plus importantes. 
+"""
+Function that select the N/2 individuals which have the highest score value
+and retun them in a new list.
 
+Args:
+	liste_rang_ (list): contain position of individuals sorted by their increased cost.
+	pop         (list): list that contain the population.
+	
+Return:
+	pop_select  (list): list that contain the selected individuals.
+"""
     nbr_select=int(len(pop)/2) 
     pop_select=[]
     for i in range(nbr_select):
@@ -102,6 +112,17 @@ def select(pop,liste_rang_): # sélectionne les N/2 individus avec les valeurs d
 
 def mutation(pop_triée_,Tm): # fonction qui parcours chaque génome et a une probabilité
 							 # de faire muter les gènes et renvoie les génomes mutés.
+"""
+Function that mutate the genome of individuals with a probability Tm. 
+
+Args:
+	pop_triée_ (list): list of individuals with the highest score.
+	Tm        (float): threshold which determine if the individal will be mutated.
+
+	
+Return:
+	pop_mutée_ (list): list of individuals after the mutation.
+"""							 					 
 	pop_mutée_ = [[0 for x in range(len(pop_triée_[0]))] for x in range(len(pop_triée_))]
 	for i in range(0,len(pop_triée_)):
 		for j in range(0,len(pop_triée_[i])):
@@ -113,6 +134,19 @@ def mutation(pop_triée_,Tm): # fonction qui parcours chaque génome et a une pr
 	return pop_mutée_
 
 def croisement(pop_mutée_,Tc):
+"""
+Procedure that cross the genome between two individuals with a probability Tc. 
+ 
+
+Args:
+	pop_mutée_ (list): list of individuals after the mutation.
+	Tc        (float): threshold which determine if the genome of an individual will 
+										 be crossed.
+
+	
+Return:
+	
+"""		
 	for i in range(0,len(pop_mutée_)):
 		a=np.random.random(1)
 		if a > Tc:
@@ -125,6 +159,18 @@ def croisement(pop_mutée_,Tc):
 
 		
 def concatene(pop,pop_mutée_,liste_rang_):
+"""
+Function that conatenate individuals that weren't mutated and those who were.
+
+Args:
+	pop 				(list): list that contain the population.
+	pop_mutée_  (list): list of individuals after the mutation.
+	liste_rang_ (list): contain position of individuals sorted by their increased cost.
+
+	
+Return:
+	pop_tot 		(list): list that contain all individuals mutated or not.
+"""	
     nbr_select=int(len(pop)/2)
     pop_moins=[]
     for i in range(nbr_select):
@@ -134,6 +180,18 @@ def concatene(pop,pop_mutée_,liste_rang_):
 
 def calc_cout(pop,r0): # calcule le coût de chaque population et retourne une liste
 		        # du rang de la population dans la liste de la popualtion d'origine
+"""
+Function that calulate the genome cost in function of r0 for each individual and 
+return a list of there individual cost.
+
+Args:
+	pop (list): contain a list of each individual. Each of individual is 
+							represented by a genom.
+	r0   (int): threshold
+	
+Return:
+	liste_cout (list): contain the cost of each individual in the populataion
+"""
     liste_cout=[] # trié dans l'ordre croissant
     for i in range(len(pop)):
         liste_cout.append(calc(pop[i],r0))
@@ -141,6 +199,32 @@ def calc_cout(pop,r0): # calcule le coût de chaque population et retourne une l
     return liste_cout
     
 def algofinal(T,r0,N,Tm,Tc,tour):
+"""
+Function that -1: use the function cretaN
+							-2: use the function calcN
+							-3: use the function select
+							-4: use the function mutation
+							-5: use the procedure croisement
+							-6: use the function concatene
+							-7: use the function calc_cout
+							-9: calculate the mean and the minimum of the cost in the population
+the fucntion repeat step 2 to 9 "tour" times and then plot the cost evolution throught the
+time.
+
+Args:
+	T    (int): genome size
+	r0   (int): threshold
+	N    (int): number of individuals in the population
+	Tm (float): threshold which determine if the individal will be mutated.
+	Tc (float): threshold which determine if the genome of an individual will 
+							be crossed.
+	tour (int): algorithm iterations number
+	
+Return:
+	Liste_cost_min  (list): List that contain the minimum cost for each iteration.
+	Liste_cost_mean (list): List that contain the average cost for each iteration.
+	
+"""
     pop_Ngenome=cretaN(N,T)
     Liste_cost_min=[]
     Liste_cost_mean=[]
