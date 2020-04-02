@@ -18,6 +18,11 @@ def creta(taille): #fonction qui permet de créer un génome.
 
     Return:
         List: contain a number "taille" of -1 and 1
+    
+    Exemple:
+    		>>> creta(5)
+    		[-1, 1, -1, 1, 1] #value are randomly generate, but all the list will contain 1 and/or -1.
+    		
     """
     T=[]
     for i in range(0,taille):
@@ -40,6 +45,11 @@ def calc(gen,r0): # calcule le coût du génome par rapport aux nombres de pas
 
     Return:
         cout (int): contain the genom cost.
+        
+    Exemple:
+    		>>> a = [-1, 1, -1, 1, 1]
+    		>>> calc(a, 1)
+    		>>> 3
     """
     
     pos=0		 
@@ -63,6 +73,11 @@ def cretaN(nbr,taille): # crée un population de "nbr" génome de taille "taille
     Return:
         pop (list): contain a list of each individual. Each of individual is 
         represented by a genom.
+        
+    Exemple:
+    		>>> cretaN(3,5)
+    		>>> [[-1, 1, -1, -1, 1], [-1, -1, -1, 1, 1], [-1, 1, -1, 1, 1]]
+
     """
     pop=[]
     for i in range(nbr):
@@ -83,6 +98,11 @@ def calcN(pop,r0): # calcule le coût de chaque population et retourne une liste
 
     Return:
         liste_ordre (list): contain position of individuals sorted by their increased cost.
+     
+    Exemple:
+    		>>> p = [[-1, 1, -1, -1, 1], [-1, -1, -1, 1, 1], [-1, 1, -1, 1, 1]]
+				>>> calcN(p,1)
+				array([2, 0, 1])  
     """
     liste_cout=[] 
     for i in range(len(pop)):
@@ -103,6 +123,13 @@ def select(pop,liste_rang_): # sélectionne les N/2 individus avec les valeurs d
 
     Return:
         pop_select  (list): list that contain the selected individuals.
+        
+    Exemple:
+    		>>> p = [[-1, 1, -1, -1, 1], [-1, -1, -1, 1, 1], [-1, 1, -1, 1, 1]]
+    	  >>> l = [2, 0, 1]
+    	  >>> select(p,l)
+    		 [[-1, 1, -1, 1, 1]]
+    		 
     """
     nbr_select=int(len(pop)/2) 
     pop_select=[]
@@ -119,9 +146,17 @@ def mutation(pop_triée_,Tm): # fonction qui parcours chaque génome et a une pr
         pop_triée_ (list): list of individuals with the highest score.
         Tm        (float): threshold which determine if the individal will be mutated.
 
-
     Return:
         pop_mutée_ (list): list of individuals after the mutation.
+    
+    Exemple:
+    		>>> p = [[1, -1, -1, -1, -1, 1, 1, 1, 1, 1], [-1, 1, -1, 1, 1, 1, -1, -1, -1, -1], [-1, 1, 1, -1, 1, 1, 1, 1, -1, 1], [-1, -1, 1, -1, -1, 1, 1, -1, 1, -1], [1, -1, 1, 1, 1, 1, 1, 1, 1, -1]]
+    		>>> l = [1, 0, 2, 3, 4] 
+    		>>> pop = select(p,l)
+    		[[1, -1, -1, -1, -1, 1, 1, 1, 1, 1], [-1, 1, 1, -1, 1, 1, 1, 1, -1, 1]]
+    		>>> mutation(pop, 0)
+    		[[-1, 1, 1, 1, 1, -1, -1, -1, -1, -1], [1, -1, -1, 1, -1, -1, -1, -1, 1, -1]]
+
     """
     pop_mutée_ = [[0 for x in range(len(pop_triée_[0]))] for x in range(len(pop_triée_))]
     for i in range(0,len(pop_triée_)):
@@ -141,10 +176,13 @@ def croisement(pop_mutée_,Tc):
     Args:
         pop_mutée_ (list): list of individuals after the mutation.
         Tc        (float): threshold which determine if the genome of an individual will 
-                                             be crossed.
-
+                           be crossed.
 
     Return:
+    		>>> pop_mutated = [[-1, 1, 1, 1, 1, -1, -1, -1, -1, -1], [1, -1, -1, 1, -1, -1, -1, -1, 1, -1]]
+    		>>> croisement(pop_mutated,0)
+    		>>> pop_mutated
+    		[[-1, 1, 1, -1, 1, 1, 1, 1, 1, 1], [1, -1, -1, -1, -1, 1, 1, 1, -1, 1]]
 
     """
     for i in range(0,len(pop_mutée_)):
@@ -166,9 +204,16 @@ def concatene(pop,pop_mutée_,liste_rang_):
         pop_mutée_  (list): list of individuals after the mutation.
         liste_rang_ (list): contain position of individuals sorted by their increased cost.
 
-
     Return:
         pop_tot 		(list): list that contain all individuals mutated or not.
+        
+    Exemple:
+    		>>> p = [[1, -1, -1, -1, -1, 1, 1, 1, 1, 1], [-1, 1, -1, 1, 1, 1, -1, -1, -1, -1], [-1, 1, 1, -1, 1, 1, 1, 1, -1, 1], [-1, -1, 1, -1, -1, 1, 1, -1, 1, -1], [1, -1, 1, 1, 1, 1, 1, 1, 1, -1]]
+    		>>> pop_mutated = [[-1, 1, 1, -1, 1, 1, 1, 1, 1, 1], [1, -1, -1, -1, -1, 1, 1, 1, -1, 1]]
+    		>>> l = [1, 0, 2, 3, 4]
+    		>>> pop_tot = concatene(p,pop_mutated,l)
+    		[[-1, 1, -1, 1, 1, 1, -1, -1, -1, -1], [-1, 1, 1, -1, 1, 1, 1, 1, 1, 1], [-1, 1, 1, -1, 1, 1, 1, 1, 1, 1], [1, -1, -1, -1, -1, 1, 1, 1, -1, 1]]
+    		
     """	
     nbr_select=int(len(pop)/2)
     pop_moins=[]
@@ -185,11 +230,17 @@ def calc_cout(pop,r0): # calcule le coût de chaque population et retourne une l
 
     Args:
         pop (list): contain a list of each individual. Each of individual is 
-                                represented by a genom.
+                    represented by a genom.
         r0   (int): threshold
 
     Return:
         liste_cout (list): contain the cost of each individual in the populataion
+        
+    Exemple:
+    		>>> pop_tot = [[-1, 1, -1, 1, 1, 1, -1, -1, -1, -1], [-1, 1, 1, -1, 1, 1, 1, 1, 1, 1], [-1, 1, 1, -1, 1, 1, 1, 1, 1, 1], [1, -1, -1, -1, -1, 1, 1, 1, -1, 1]]
+    		>>> calc_cout(pop_tot,2)
+    		array([2, 5, 5, 3])
+    
     """
     liste_cout=[] # trié dans l'ordre croissant
     for i in range(len(pop)):
@@ -222,6 +273,10 @@ def algofinal(T,r0,N,Tm,Tc,tour):
     Return:
         Liste_cost_min  (list): List that contain the minimum cost for each iteration.
         Liste_cost_mean (list): List that contain the average cost for each iteration.
+        
+    Exemple:
+    		>>> algofinal(10,2,5,0,0,10)
+    		[[1, 1, 0, 0, 0, 0, 0, 0, 0, 0], [1.25, 1.0, 1.0, 0.75, 2.75, 3.5, 2.0, 0.75, 0.75, 0.75]]
 
     """
     pop_Ngenome=cretaN(N,T)
@@ -241,68 +296,4 @@ def algofinal(T,r0,N,Tm,Tc,tour):
     plt.plot(liste,Liste_cost_mean)
     plt.show
     return [Liste_cost_min,Liste_cost_mean]
-#####################################################################################
-
-# genome=creta(100)
-# print(genome)
-
-# print(calc(genome,4))
-
-# pop_Ngenome = cretaN(100,200)
-# print(pop_Ngenome)
-
-# print(calcN(pop_Ngenome,4))
-
-# liste_rang=calcN(pop_Ngenome,4) 
-# pop_triée=select(pop_Ngenome,liste_rang)
-# print(pop_triée)
-# print(calcN(pop_triée,4))
-
-# pop_mutée = mutation(pop_triée,0.5)
-# print(pop_mutée[0])
-# print(pop_triée[0])
-
-
-# croisement(pop_mutée,0.05)
-
-# pop = concatene(pop_Ngenome,pop_mutée,liste_rang)
-
-# cout_totaux = calc_cout(pop,4)
-# print(min(cout_totaux))
-# print(np.mean(cout_totaux))
-
-####### mini,moy=algofinal(500,4,100,0.05,0.1,500)
-# critère d'arrêt nombre de tour où convergence vers une valeur (mais dure
-# à trouver)
-
-#def algofinal(T,r0,N,Tm,Tc,tour):
-
-#mini,moy=algofinal(10,4,100,0.05,0.1,200)
-#mini,moy=algofinal(1000,4,100,0.05,0.1,200)
-#T est lié à la valeur de cout, plus il est petit plus le cout mayen
-#et minimum sera faible
-
-#mini,moy=algofinal(500,1,100,0.05,0.1,200)
-#mini,moy=algofinal(500,2,100,0.05,0.1,200)
-#mini,moy=algofinal(500,3,100,0.05,0.1,200)
-#plus le r0 est petit plus la valeur de coût minimla est forte au début, mais 
-#on observe aussi une baisse du coût minimal très rapide.
-# plus le r0 est grand plus la valeur du coût minimum initial est faible
-#mais on observe une baisse lente du coût minimla au fur et à mesure des générations
-
-#mini,moy=algofinal(500,4,100,0.0005,0.1,200)
-#augmentation du taux de mutation => cout mut mini augmente et la descente
-#du cout mini est plus lente, le coût moyen augmente très légèrement
     
-#mini,moy=algofinal(500,4,100,0.05,0.001,200)
-
-
-
-
-
-
-
-
-
-
-
