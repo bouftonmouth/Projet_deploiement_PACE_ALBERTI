@@ -1,0 +1,6 @@
+README.txt
+setup.py
+algorithme_bio_inspire.egg-info/PKG-INFO
+algorithme_bio_inspire.egg-info/SOURCES.txt
+algorithme_bio_inspire.egg-info/dependency_links.txt
+algorithme_bio_inspire.egg-info/top_level.txt
