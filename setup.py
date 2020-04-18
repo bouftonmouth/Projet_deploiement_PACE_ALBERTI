@@ -5,14 +5,18 @@ with open("README.txt", "r") as fh:
 
 setuptools.setup(
     name="algorithme bio-inspire", # Replace with your own username
-    version="1.0",
+    version="1.1",
     author="ALBERTI Baptiste PACE Tanguy",
-    author_email="baptiste.alberti@insa-lyon.fr / tanguy.pace@insa-lyon.fr",
-    description=long_description,
+    author_email="baptiste.alberti@insa-lyon.fr",
+    description="Optimized genome creator",
     long_description=long_description,
-    long_description_content_type="text/markdown",
+    long_description_content_type='text/markdown',
     url="https://github.com/bouftonmouth/Projet_sergio",
     packages=setuptools.find_packages(),
+    intall_requires=[
+    	'numpy'
+    	'matplotlib'
+    ],
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",

@@ -1,4 +1,4 @@
-Welcome to bio-inspired algorithme's documentation!
+Documentation
 ===================================================
 
 This algorithm aims to create a population of genomes and to modify them by mutation and crossing over to make them as optimal as possible.

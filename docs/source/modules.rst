@@ -1,7 +1,7 @@
-Documents
-=========
+Packages à installer
+=====================
+Installer la dernière version de numpy :
+https://numpy.org/
 
-.. toctree::
-   :maxdepth: 4
-
-   projet
+Installer la dernière version de matplotlib :
+https://matplotlib.org/

@@ -8,16 +8,13 @@ Pour Commencer : Le module se compose de plusieurs petites fonctions indépendan
 	- Sélectionner les génomes
 	- Réaliser des mutations et des crossing over
 	- Calculer la moyenne des couts 
-Tous les algorithmes s'assemblent dans une fonction principale. Il est possible de tester chaque fonction indépendamment mais si vous voulez tout de suite faire appel au module dans son ensemble lancer la fonction algofinal.
+Toutes les fonctions s'assemblent dans une fonction principale. Il est possible de tester chaque fonction indépendamment mais si vous voulez tout de suite faire appel au module dans son ensemble lancer la fonction algofinal.
 
-Pré-requis :
+Pré-requis : Connaissance en programmation python et en optimisation
 
+Bibliothèques à installer : numpy et matplotlib
 
-Installation :
-
-
-Démarrage :
-
+Installation : Dans un terminal entrez la commande suivante : "pip install -i https://test.pypi.org/simple/ algorithme-bio-inspire"
 
 Fabriqué avec :
 	- La bibliothèque numpy pour python 3
@@ -28,4 +25,4 @@ Auteurs :
 	- Alberti Baptiste alias balberti 4BIM
 
 License :
-Ce projet est sous license ...
+Ce projet est sous license GNU GENERAL PUBLIC LICENSE
