@@ -251,13 +251,13 @@ def calc_cout(pop,r0): # calcule le coût de chaque population et retourne une l
 def algofinal(T,r0,N,Tm,Tc,tour):
     """
     Function that -1: use the function cretaN
-                                -2: use the function calcN
-                                -3: use the function select
-                                -4: use the function mutation
-                                -5: use the procedure croisement
-                                -6: use the function concatene
-                                -7: use the function calc_cout
-                                -9: calculate the mean and the minimum of the cost in the population
+                  -2: use the function calcN
+                  -3: use the function select
+                  -4: use the function mutation
+                  -5: use the procedure croisement
+                  -6: use the function concatene
+                  -7: use the function calc_cout
+                  -9: calculate the mean and the minimum of the cost in the population
     the fucntion repeat step 2 to 9 "tour" times and then plot the cost evolution throught the
     time.
 
