@@ -4,8 +4,8 @@ with open("README.txt", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="algorithme bio-inspire", # Replace with your own username
-    version="1.1",
+    name="Bio-inspired Algorithm", # Replace with your own username
+    version="1.2",
     author="ALBERTI Baptiste PACE Tanguy",
     author_email="baptiste.alberti@insa-lyon.fr",
     description="Optimized genome creator",

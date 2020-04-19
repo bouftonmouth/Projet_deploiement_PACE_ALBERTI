@@ -1,12 +1,12 @@
-Exemples et Tutorial
+Examples and Tutorial
 ====================
 
-Exemples
+Examples
 ----------
 
-Vous trouverez des exemples de chaque fonction dans le code source du package.
+You can find examples of each function in the source code of the package.
 
 Tutorial
 ----------
 
-Un tutorial est disponible via jupyter. Il vous permettra de mieux découvrir pas à pas ce que font les fonctions pour mieux comprendre l'algorithme général.
+A tutorial is available via jupyter. It will allow you to discover step by step what the functions do to better understand the general algorithm.

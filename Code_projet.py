@@ -9,9 +9,9 @@ Created on Tue Nov  5 16:55:19 2019
 import numpy as np
 import matplotlib.pyplot as plt
 
-def creta(taille): #fonction qui permet de créer un génome.
+def creta(taille):
     """
-    Function that creat a list that represents a genom.
+    Function that create a list that represents a genome.
 
     Args:
         taille (int): list size
@@ -34,8 +34,7 @@ def creta(taille): #fonction qui permet de créer un génome.
         T.append(d)
     return T
 
-def calc(gen,r0): # calcule le coût du génome par rapport aux nombres de pas 
-     			  # en dehors de [-r0,r0].
+def calc(gen,r0): 
     """
     Function that calulate the genome cost in function of r0.
 
@@ -61,9 +60,9 @@ def calc(gen,r0): # calcule le coût du génome par rapport aux nombres de pas
     return cout
 
         
-def cretaN(nbr,taille): # crée un population de "nbr" génome de taille "taille".
+def cretaN(nbr,taille):
     """
-    Function that creat a population with a size "nbr" and each individual
+    Function that create a population with a size "nbr" and each individual
     got a genom with a size "taille".
 
     Args:
@@ -84,9 +83,7 @@ def cretaN(nbr,taille): # crée un population de "nbr" génome de taille "taille
         pop.append(creta(taille))
     return pop
 
-def calcN(pop,r0): # calcule le coût de chaque population et retourne une liste
-		        # du rang de la population dans la liste de la popualtion d'origine
-  			    # trié dans l'ordre croissant
+def calcN(pop,r0):
     """
     Function that calulate the genome cost in function of r0 for each individual and 
     return a list of position sorted by decreased cost.
@@ -112,10 +109,10 @@ def calcN(pop,r0): # calcule le coût de chaque population et retourne une liste
     return liste_ordre
 
 
-def select(pop,liste_rang_): # sélectionne les N/2 individus avec les valeurs de coût les plus importantes. 
+def select(pop,liste_rang_):
     """
     Function that select the N/2 individuals which have the highest score value
-    and retun them in a new list.
+    and return them in a new list.
 
     Args:
         liste_rang_ (list): contain position of individuals sorted by their increased cost.
@@ -137,8 +134,7 @@ def select(pop,liste_rang_): # sélectionne les N/2 individus avec les valeurs d
         pop_select.append(pop[liste_rang_[nbr_select-1+i]])
     return pop_select
 
-def mutation(pop_triée_,Tm): # fonction qui parcours chaque génome et a une probabilité
-							 # de faire muter les gènes et renvoie les génomes mutés.
+def mutation(pop_triée_,Tm):
     """
     Function that mutate the genome of individuals with a probability Tm. 
 
@@ -222,8 +218,7 @@ def concatene(pop,pop_mutée_,liste_rang_):
     pop_tot = pop_moins + pop_mutée_
     return pop_tot
 
-def calc_cout(pop,r0): # calcule le coût de chaque population et retourne une liste
-		        # du rang de la population dans la liste de la popualtion d'origine
+def calc_cout(pop,r0):
     """
     Function that calulate the genome cost in function of r0 for each individual and 
     return a list of there individual cost.

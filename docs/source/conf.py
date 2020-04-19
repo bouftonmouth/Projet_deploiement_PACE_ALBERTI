@@ -17,7 +17,7 @@ sys.path.insert(0, os.path.abspath('../../Code_projet.py'))
 
 # -- Project information -----------------------------------------------------
 
-project = 'bio-inspired algorithme'
+project = 'Bio-inspired Algorithme'
 copyright = '2020, Baptiste ALBERTI Tanguy PACE'
 author = 'Baptiste ALBERTI Tanguy PACE'
 

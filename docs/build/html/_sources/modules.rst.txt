@@ -1,7 +1,7 @@
-Packages à installer
+Packages to install
 =====================
-Installer la dernière version de numpy :
+Install the latest version of numpy :
 https://numpy.org/
 
-Installer la dernière version de matplotlib :
+Install the latest version of matplotlib :
 https://matplotlib.org/

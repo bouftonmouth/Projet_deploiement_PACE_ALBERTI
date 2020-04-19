@@ -1,28 +1,28 @@
-Titre du projet : Optimisation d'un algorithme génétique
+Project Title: Optimization of a Genetic Algorithm
 
-Description : Le but de ce module python est d'optimiser un génome ou une population de génomes. Pour cela à chaque génération des mutations et des crossings over vont avoir lieu dans les génomes afin de faire varier leur fonction de coût. Une sélection permet de ne modifier que les génomes très éloignés du seuil de coût.
+Description: The goal of this python module is to optimize a genome or a population of genomes. For this purpose, at each generation, mutations and crossings over will take place in the genomes in order to vary their cost function. A selection allows to modify only those genomes that are far from the cost threshold.
 
-Pour Commencer : Le module se compose de plusieurs petites fonctions indépendantes qui permettent de :
-	- Construire les populations
-	- Calculer la fonction de coût de chaque génome
-	- Sélectionner les génomes
-	- Réaliser des mutations et des crossing over
-	- Calculer la moyenne des couts 
-Toutes les fonctions s'assemblent dans une fonction principale. Il est possible de tester chaque fonction indépendamment mais si vous voulez tout de suite faire appel au module dans son ensemble lancer la fonction algofinal.
+Getting Started: The module consists of several small independent functions that allow to :
+	- Build a population
+	- Calculate the cost function of each genome
+	- Selecting genomes
+	- Performing mutations and crossing over
+	- Calculate average and minimal costs 
+All functions come together in one main function. It is possible to test each function independently, but if you want to call the module as a whole right away, start the algofinal function.
 
-Pré-requis : Connaissance en programmation python et en optimisation
+Prerequisites: Knowledge of python programming and optimization
 
-Bibliothèques à installer : numpy et matplotlib
+Libraries to be installed: numpy and matplotlib
 
-Installation : Dans un terminal entrez la commande suivante : "pip install -i https://test.pypi.org/simple/ algorithme-bio-inspire"
+Installation: In a terminal enter the following command: "pip install -i https://test.pypi.org/simple/ algorithm-bio-inspire".
 
-Fabriqué avec :
-	- La bibliothèque numpy pour python 3
-	- La bibliothèque matplotlib pour python 3
+Made with :
+	- The numpy library for python 3
+	- The matplotlib library for python 3
 
-Auteurs : 
-	- Tanguy Pace alias bouftonmouth 4BIM
-	- Alberti Baptiste alias balberti 4BIM
+Authors: 
+	- Tanguy Pace aka bouftonmouth  4BIM
+	- Alberti Baptiste aka balberti 4BIM
 
-License :
-Ce projet est sous license GNU GENERAL PUBLIC LICENSE
+License:
+This project is licensed under the GNU GENERAL PUBLIC LICENSE
